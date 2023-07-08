@@ -158,6 +158,8 @@ tbody tr, td , th{
     justify-content: space-between;
     color: #D1C000;
     cursor: pointer;
+    position: relative;
+    top: 25px;
 }
 #ajoutModal {
     display: none;
@@ -227,4 +229,20 @@ cursor: pointer;
  }
  .label{
     color: #0C5E69;
+ }
+ .box{
+    display: flex;
+    justify-content: space-between;
+ }
+ .tableau-items{
+    display: flex;
+    justify-content: space-around;
+
+    background-color: #0C5E69;
+    color: #fff;
+    text-align: left;
+ }
+ .items{
+    width: 100px;
+    /* background: red; */
  }
