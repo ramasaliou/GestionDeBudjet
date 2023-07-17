@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!-- .modal. -->
+    <!-- modal. -->
   
     <div id="container">
     <div class="modal" id="ajoutModal">
@@ -21,7 +21,6 @@
         <h1><span class=" test">B</span><span class="test2">udjet</span></h1> 
         <h2 class="titre"> gestion de budjet</br> AJOUTER DEPENSE</h2>
 
-        
         <div class="form">
             <form method="Post" id="myform">
                 <label for="titre">TITRE</label>
@@ -72,34 +71,6 @@
 
         </thead> -->
          <tbody id="containers">
-<<<<<<< HEAD
-        <!-- <tr>
-            <td> Nourriture</td> 
-            <td> 40.000FCFA</td>
-            <td> <button>Supprimer</button></td>
-        </tr>
-        <tr>
-            <td> Loyer</td>
-            <td> 30.000F CFA</td>
-            <td> <button>Supprimer</button></td>
-        </tr>
-            <tr>
-                <td> Transport</td>
-                <td> 10.000F CFA</td>
-                <td> <button>Supprimer</button></td>
-            </tr>
-                <tr>
-                    <td> 
-                
-                        <div  class="btn-add">
-                            AJOUTER DEPENSE <i class="fa fa-plus-circle" id ='openModalDep'></i>
-                        </div>
-                    </td>
-                    <td> </td>
-                    <td> </td>
-                </tr> -->
-=======
->>>>>>> 83ab13d3afab92886f38d3d4608bac0821aa05c4
       </tbody>
 </table>
 </p>
@@ -107,7 +78,7 @@
 <div class="box">
     <h3 class="test3"> Liste des revenus</h3>
     <div  class="btn-add">
-        AJOUTER REVENUES <i class="fa fa-plus-circle" id ='openModalDep'></i>
+        AJOUTER REVENUES <i class="fa fa-plus-circle" id ='openModalRev'></i>
     </div>
 </div>
 <p>
@@ -124,9 +95,32 @@
             <th>ACTIONS</th>
         </tr>
     </thead> -->
-     <tbody> 
+     <tbody id="containers1"> 
       <!--  -->
+    <!-- modal2. -->
+  
+    <div id="container2">
+        <div class="modal" id="ajoutModal2">
+        <div class="modal-content">
+            <span class="clos">X</span>  
+            <h1><span class=" test">B</span><span class="test2">udjet</span></h1> 
+            <h2 class="titre"> gestion de budjet</br> AJOUTER REVENUE</h2>
     
+            
+            <div class="form">
+                <form method="Post" id="myform1">
+                    <label for="titre">TITRE</label>
+                    <input class="form-input" type="text" id="titre2" name="TITRE"/>
+    
+                    <label for="montant">MONTANT</label>
+                    <input class="form-input" type="text" id="montant2" name="montant"/>
+    
+                    <button type="submit" class="addRevenueButton">Ajouter</button>
+                </form>
+            </div>
+        </div>
+       </div>
+    </div>
     <tr>
         <td> Salaire</td>
         <td> 300.000 F CFA</td>
