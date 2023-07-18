@@ -26,16 +26,6 @@ var form = document.getElementById('myform');
     data = JSON.parse(table_depense);
 
   }
-  
-
-
-
-  
-
- 
-
-
-
 
   // Ajout des nouvelles données à la liste existante
   data.push(formData);
@@ -92,10 +82,25 @@ function afficherTableau(data) {
     boutonSupprimer.addEventListener('click', function() {
       // Récupération de la ligne parente (tr) du bouton
       var ligneParente = this.parentNode.parentNode;
-
+    
+      // Obtention de l'index à partir d'un attribut de données sur la ligne parente
+      var indexToRemove = parseInt(ligneParente.getAttribute('data-index'));
+    
       // Suppression de la ligne du tableau
       ligneParente.parentNode.removeChild(ligneParente);
-
+    
+      var table_depense = localStorage.getItem('formData');
+      var data = [];
+      
+      if (table_depense) {
+        data = JSON.parse(table_depense);
+      }
+    
+      // Suppression de l'élément du tableau en utilisant l'index
+      data.splice(indexToRemove, 1);
+    
+      // Mise à jour des données dans le localStorage
+      localStorage.setItem('formData', JSON.stringify(data));
     });
 
     celluleActions.appendChild(boutonSupprimer);
@@ -118,6 +123,17 @@ var data = [];
 if (table_depense) {
   data = JSON.parse(table_depense);
 }
+
+var montant_depense = data.map(function(item){
+  return item.montant
+})
+var somme_depense = montant_depense.reduce(function(total, montant){
+  return total + parseFloat(montant)
+},0)
+
+var Eldepense = document.getElementById("item-depense")
+Eldepense.textContent = somme_depense + "F CFA"
+console.log("somme_depense", somme_depense)
 
 afficherTableau(data);
 
@@ -158,6 +174,7 @@ openModalRev.onclick = function(){
 
 clos.onclick = function(){
   modal2.style.display='none'
+  // update();
 }
 //partie revenu
 
@@ -228,14 +245,32 @@ function afficherTableau1(data1) {
     boutonSupprimer1.textContent = 'Supprimer';
     boutonSupprimer1.classList.add('btn-supprimer');
 
-    // Gestionnaire d'événement pour le clic sur le bouton "Supprimer"
-    boutonSupprimer1.addEventListener('click', function() {
-      // Récupération de la ligne parente (tr) du bouton
-      var ligneParente1 = this.parentNode.parentNode;
+        // Gestionnaire d'événement pour le clic sur le bouton "Supprimer"
+        boutonSupprimer1.addEventListener('click', function() {
+          // Récupération de la ligne parente (tr) du bouton
+          var ligneParente1 = this.parentNode.parentNode;
+        
+          // Obtention de l'index à partir d'un attribut de données sur la ligne parente
+          var indexToRemove = parseInt(ligneParente1.getAttribute('data-index'));
+        
+          // Suppression de la ligne du tableau
+          ligneParente1.parentNode.removeChild(ligneParente1);
+        
+          var table_revenu = localStorage.getItem('formData1');
+          var data1 = [];
+          
+          if (table_revenu) {
+            data1 = JSON.parse(table_revenu);
+          }
+        
+          // Suppression de l'élément du tableau en utilisant l'index
+          data1.splice(indexToRemove, 1);
+        
+          // Mise à jour des données dans le localStorage
+          localStorage.setItem('formData1', JSON.stringify(data1));
+        });
 
-      // Suppression de la ligne du tableau
-      ligneParente1.parentNode.removeChild(ligneParente1);
-    });
+   
     celluleActions1.appendChild(boutonSupprimer1);
 
     ligne1.appendChild(celluleTitre1);
@@ -255,4 +290,26 @@ if (table_depense1) {
   data1 = JSON.parse(table_depense1);
 }
 
+var montant_revenu = data1.map(function(item){
+  return item.montant
+})
+var somme_revenu = montant_revenu.reduce(function(total, montant){
+  return total + parseFloat(montant)
+},0)
+
+var ElRevenu = document.getElementById("item-revenu")
+ElRevenu.textContent = somme_revenu + "F CFA"
+console.log("somme_revenu", somme_revenu)
+
 afficherTableau1(data1);
+
+
+var ElBudget = document.getElementById("item-budget")
+var somme_budget = somme_depense + somme_revenu
+ElBudget.textContent = somme_budget + "F CFA"
+console.log("somme_budget", somme_budget)
+
+// function update (){
+//   window.location.href = "file:///C:/Users/AS TECHNOLOGIE/Desktop/GestionDeBudjet";
+  
+// }
